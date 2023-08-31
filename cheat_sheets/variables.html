@@ -6,6 +6,20 @@
     <title>Variables Cheat Sheet</title>
 </head>
 <body>
-    
+    <h1 id="headline">Variabler</h1>
+    <p>Her lærer vi litt om variabler.</p>
+    <p>Variabler kan tenkes på som gaver.</p>
+    <p>Gaver vi gir, vet vi hva inneholder.</p>
+    <p>Gaver vi får, må vi pakke opp.</p>
+    <script>
+        const newHeadline = "Variables Cheat Sheet"
+        console.log(newHeadline)
+        //  Finn HTMl-element med id headline, og bytt ut verdien 
+        document.getElementById("headline").innerHTML = newHeadline
+
+        // Bruk av regnestykke eks. 10 + 22 vil JavaScript gjøre utregningen og dette vises på nettleseren
+        const newStatement = "Variabler er gøy!"
+        document.querySelector("p").innerHTML = newStatement
+    </script>
 </body>
 </html>
