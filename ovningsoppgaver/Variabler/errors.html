@@ -6,14 +6,14 @@
     <title>Feilsøk og rett</title>
 </head>
 <body>
-    <p id="melding">HEi</p>
+    <p id="melding"></p>
 
     <script>
         const user_name = "Ridwan";
         const user_birthyear = 2002
         const age = 2023 - user_birthyear
-        const utskrift = "Hei" +  user_name + age;
-        console.log(utskrift)
+        const utskrift = "Hei" +  user_name +  " (" + age + "år)"
+    
         document.getElementById("melding").innerHTML = utskrift;
     </script>
 </body>

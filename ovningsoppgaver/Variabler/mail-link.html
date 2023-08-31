@@ -7,11 +7,11 @@
 </head>
 <body>
     <p id="maillink"></p>
-    <a href="mailto:ridwnaa@hiof.no"> Send mail til Ridwan</a>
     <script>
         const name = "Ridwan"
         const mail = "ridwanaa@hiof.no"
-        console.log(`maillink ${mail}`)
+        const emailLink = `<a href="mailto:ridwnaa@hiof.no"> Send mail til Ridwan</a> + ${email}`
+        document.getElementById("maillink").innerHTML = emailLink
     </script>
 </body>
 </html>
