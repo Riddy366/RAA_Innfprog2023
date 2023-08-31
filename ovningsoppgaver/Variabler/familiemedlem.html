@@ -6,15 +6,20 @@
     <title>utregning av gjennomsnitt</title>
 </head>
 <body>
-    <p id="average">Gjennomsnittsalder i familien</p>
+    <p id="average"></p>
     <script>
+        // Definerer variabler for familiemedlemmene med en verdi (alder)
         const mom = 37;
         const dad = 32
         const son = 7
         const daughter = 2
 
+        // Regner ut totalAge med å regne ut sammenlagt alder
         const totalAge = mom + dad + daughter + son
+        
+        // Regner ut gjennomsnittet ved å ta total alder delt på antall (4)
         const averegeAge = totalAge / 4
+
         document.getElementById("average").innerHTML = averegeAge + " er familiens gjennomsnittsalder"
     </script>
 </body>

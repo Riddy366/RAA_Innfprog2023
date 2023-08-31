@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Epost Lenke</title>
 </head>
 <body>
     <p id="maillink"></p>
     <script>
+        // Variabler for Navn og epost adresse
         const name = "Ridwan"
         const mail = "ridwanaa@hiof.no"
-        const emailLink = `<a href="mailto:ridwnaa@hiof.no"> Send mail til Ridwan</a> + ${email}`
+        
+        // Legger til en link som automatisk åpner mail appen og har definert mailen
+        const emailLink = `<a href="mailto:${email}> Send mail til Ridwan</a> + ${email}`
+
         document.getElementById("maillink").innerHTML = emailLink
     </script>
 </body>
