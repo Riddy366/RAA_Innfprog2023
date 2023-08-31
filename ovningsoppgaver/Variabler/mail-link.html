@@ -6,16 +6,16 @@
     <title>Epost Lenke</title>
 </head>
 <body>
-    <p id="maillink"></p>
+    <p id="mailLink"></p>
     <script>
         // Variabler for Navn og epost adresse
         const name = "Ridwan"
-        const mail = "ridwanaa@hiof.no"
-        
-        // Legger til en link som automatisk åpner mail appen og har definert mailen
-        const emailLink = `<a href="mailto:${email}> Send mail til Ridwan</a> + ${email}`
+        const email = "ridwanaa@hiof.no"
 
-        document.getElementById("maillink").innerHTML = emailLink
+        // Legger til en link som automatisk åpner mail appen og har definert mailen
+        const emailLink = `<a href="mailto:${email}"> Send mail til ${name}</a>`
+
+        document.getElementById("mailLink").innerHTML = emailLink
     </script>
 </body>
 </html>
