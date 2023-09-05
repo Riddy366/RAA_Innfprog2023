@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Logic Cheat Sheet</title>
+</head>
+<body>
+    <script>
+        const age = 17
+        const passedTheory = false
+        const passedPractical = false
+
+        let message = "Resultat: "
+
+        if(age >= 18){
+            message += "Personen er 18 år eller eldre."
+        } else {
+            message += "Personen er ikke gammel nok til å kjøre bil."
+        }
+
+        if(age >= 18 && passedTheory === true && passedPractical === true) {
+            message += "Personen er klarert for bilkjøring."
+        }else{
+            message += "Personen er ikke klarert for bilkjøring."
+        }
+
+        console.log(message)
+    </script>
+</body>
+</html>
