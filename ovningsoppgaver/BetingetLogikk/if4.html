@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doble betingelser</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <script>
+        const ITF19019_grade = "A"
+        const ITF10511_grade = "F"
+
+        
+
+        ITF19019_passed = ITF19019_grade === "F" ? true : false;
+        ITF10511_passed = ITF10511_grade === "F" ? true : false;
+
+        let countPassed = 0
+
+        if(ITF19019_passed === true){
+            countPassed += 1
+        }
+
+        if(ITF10511_passed === true){
+            countPassed += 1
+        }
+
+        const printText = `Du har bestått ${countPassed}`
+        document.getElementById("utskrift").innerHTML = printText
+
+
+    
+        
+        
+    </script>
+</body>
+</html>

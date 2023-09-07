@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell barn</title>
+</head>
+<body>
+    <p id="telle barn"></p>
+    <script>
+        const barn1 = "gutt"
+        const barn2 = "jente"
+        const barn3 = "jente"
+
+        let antall_gutter = 0
+        let antall_jenter = 0
+
+        message = " "
+
+        if(barn1 == "gutt"){
+            antall_gutter += 1
+        }else{
+            antall_jenter += 1
+        }
+
+        if(barn2 == "jente"){
+            antall_jenter += 1
+        }else{
+            antall_gutter += 1
+        }
+
+        if(barn3 == "gutt"){
+            antall_gutter += 1
+        }else{
+            antall_jenter += 1
+        }
+
+        message = "Gutter:" + antall_gutter + " Jenter: " + antall_jenter
+        document.getElementById("telle barn").innerHTML = message
+    </script>
+</body>
+</html>
