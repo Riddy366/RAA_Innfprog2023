@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array with objects Cheat Sheet</title>
+    <style>
+        body {background: #f3f3f3f3;}
+        section {width: 90%; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;}
+        article {width: 31%; background: #ffffff; border: 1px solid #ccc;}
+        article img {width: 100%; height: auto;}
+        h2, p {margin: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Photo Gallery</h1>
+    <section id="gallery">
+        
+    </section>
+    <script>
+        //All pictures fetched with permission from unsplash.com
+
+        const photogallery = [
+            {
+                title: "Moose",
+                photographer: "Santonii",
+                imageURL: "https://images.unsplash.com/photo-1694304804759-7c738ce19586",
+                category: "Nature"
+            },
+            {
+                title: "Cabin",
+                photographer: "Shawnanggg",
+                imageURL: "https://images.unsplash.com/photo-1691848749210-5d06893a53db",
+                category: "Nature"
+            },
+            {
+                title: "Baby",
+                photographer: "Kateryna Hliznitsova",
+                imageURL: "https://images.unsplash.com/photo-1693251802295-0c14bee04607",
+                category: "People"
+            },
+            {
+                title: "Kiss of leaves",
+                photographer: "Jennifer Kalenberg",
+                imageURL: "https://images.unsplash.com/photo-1694231665185-bf22c08d9ced",
+                category: "People"
+            },
+            {
+                title: "The road",
+                photographer: "Pedro Mestres",
+                imageURL: "https://images.unsplash.com/photo-1693773606486-82a749556017",
+                category: "Nature"
+            },
+            
+        ]
+        // console.log(photogallery)
+        photogallery.map(photo => document.getElementById("gallery").innerHTML += `<article>
+            <img src="${photo.imageURL}" alt="${photo.title}"/>
+            <h2>${photo.title}</h2>
+            <p>Photographer: ${photo.photographer}</p>
+        </article>`)
+
+    </script>
+</body>
+</html>

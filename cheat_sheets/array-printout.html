@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Printout Cheat sheet</title>
+</head>
+<body>
+    <ul id="handleliste">
+        
+    </ul>
+
+    <script>
+        const shoppingList = ["Brød", "Egg", "Melk", "Sukker", "Ost", "Sjokolade", "Epler", "Bananer"]
+        let shoppingListHTML = ""
+        // Arrow liste "=>"
+        shoppingList.map(element => shoppingListHTML += `<li>${element}</li>`)
+        document.getElementById("handleliste").innerHTML = shoppingListHTML
+    </script>
+</body>
+</html>
