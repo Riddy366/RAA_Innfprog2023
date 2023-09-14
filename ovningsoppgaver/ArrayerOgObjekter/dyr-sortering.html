@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyrearter</title>
+</head>
+<body>
+    <p id="dyr"></p>
+    <script>
+
+        const dyr = ["Hund", "Katt", "Hamster", "Kanin", "Hest", "Sau", "Elefant", "Giraff", "Ku", "Geit"]
+
+        // Legge til to dyr i arrayen
+        dyr.push("Esel", "Zebra")
+
+        // Sortere array i alfabetisk rekkefølge
+        dyr.sort()
+        //console.log(dyr.sort())
+    
+        // Antall dyr i array
+        const antalldyr = dyr.length
+
+        const indexDyr = `Antall dyr ${antalldyr}.
+        ${dyr[0]}, ${dyr[1]}, ${dyr[2]}, ${dyr[3]}, ${dyr[4]}, ${dyr[5]}, 
+        ${dyr[6]}, ${dyr[7]}, ${dyr[8]}, ${dyr[9]}, ${dyr[10]}, ${dyr[11]}`
+        console.log("Antall dyr + printe ut alle dyr i array")
+        console.log(indexDyr)
+
+        
+
+        console.log(antalldyr)
+    </script>
+    
+</body>
+</html>

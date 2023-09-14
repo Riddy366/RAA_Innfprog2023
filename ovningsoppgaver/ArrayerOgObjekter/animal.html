@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<body>
+    <p id="translate"></p>
+    <script>
+        const dyr = ["Hund", "Katt", "Hamster", "Kanin", "Hest", "Sau", "Elefant", "Giraff", "Ku", "Geit"]
+        const animals = ["Dog", "Cat", "Hamster", "Rabbit", "HHorsest", "Sheep", "Elephant", "Giraffe", "Cow", "Goat"]
+
+        const tekst = `${dyr[3]} er et Dyr. Det heter ${animals[3]} på engelsk. <br>
+        ${dyr[6]} er et Dyr. Det heter ${animals[6]} på engelsk <br> `
+
+        document.getElementById("translate").innerHTML = tekst
+    </script>
+
+    
+</body>
+</html>

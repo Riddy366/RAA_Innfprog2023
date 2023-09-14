@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Years</title>
+</head>
+<body>
+    <ul id="events">
+
+    </ul>
+    <script>
+
+        
+        years = [1066, 1564, 1455, 1346, 1215]
+
+        // Sortert med nyeste tallet først
+        years.sort(function(a, b) {return b - a})
+        console.log(years)
+
+        let eventHTML = ""
+
+        // legger til alle årstall som liste
+        years.map((year) => eventHTML += `<li>${year}</li>`)
+
+        document.getElementById("events").innerHTMl = eventHTML
+    </script>
+</body>
+</html>
