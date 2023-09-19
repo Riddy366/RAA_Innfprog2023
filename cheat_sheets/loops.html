@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Cheat Sheet</title>
+</head>
+<body>
+    <h2>Nedtelling fra 10</h2>
+    <section id="countdown"></section>
+    <h2>Alle femmerne mellom 50 of 100</h2>
+    <section id="fives"></section>
+    <h2>While Løkker</h2>
+    <section id="while"></section>
+
+    <h2>The sum of the hundred</h2>
+    <p id="hundred"></p>
+
+    <h2>Tall deling på 7</h2>
+    <p id="seven"></p>
+
+    <script>
+        // Semikolon skiller parameterne fra hverandre
+        for(let teller = 10; teller >= 0; teller --) { // teller = teller - 1
+            document.getElementById("countdown").innerHTML += `<p>${teller}</p>`
+        }
+
+        // Henter alle femmere fra 50 til 100, eks: 50, 55, 60....
+        for(let teller = 50; teller <= 100; teller = teller + 5){
+            document.getElementById("fives").innerHTML += `<p>${teller}</p>` // eller teller + ", " istedenfor `<p>${teller}</p>`
+        }
+
+        let whileTeller = 1
+        while(whileTeller < 20) {
+            document.getElementById("while").innerHTML += `<p>${whileTeller}</p>`
+            whileTeller++
+        }
+
+        // Bruk en for-løkke for å legge sammen alle tallene fra 1 til 100
+        // Utskriften skal være 1 + 2 + 3..... + 100 = SUM
+
+        let sum = 0;
+        const max = 670;
+        for(let tall = 1; tall <= max; tall++) {
+            sum += tall
+            console.log(sum)
+            if(tall < max) {
+                document.getElementById("hundred").innerHTML += tall + " + "
+            } else {
+                document.getElementById("hundred").innerHTML += tall + " = " + sum
+            }
+
+        }
+
+        // Vi ønsker å skrive ut alle tall mellom 1 og 100 som er deling på 7
+
+        for(let tall = 1; tall <= 100; tall++) {
+            if(tall % 7 === 0) {
+                document.getElementById("seven").innerHTML += tall + ", "
+            }
+        }
+
+    </script>
+</body>
+</html>
