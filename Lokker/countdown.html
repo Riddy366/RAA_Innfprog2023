@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<body>
+    <h2>Countdown from 10 to 1</h2>
+    <ul id="countdown">
+
+    </ul>
+    <script>
+
+        let htmlString = ""
+
+        for(let countdown = 10; countdown >= 0; countdown-- ) {
+            //Oppgave 1
+          // htmlString += `<li>${countdown}</li>`
+    
+
+          // Oppgave 1.1
+        if(countdown === 0) {
+            htmlString += "We have takeoff"
+        }else{
+            htmlString += `<li>${countdown}</li>`
+        }
+       
+       // console.log(htmlString)
+       document.getElementById("countdown"). innerHTML = htmlString
+
+    }
+
+    </script>
+</body>
+</html>
