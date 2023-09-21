@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generert meny</title>
+    <link href="menu.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>InnfProg Oblig 2</h1>
+        <button id="toggleMenu" aria-label="Open the menu">Menu <img src="menuicon.png" aria-hidden="true"></button>
+        <nav id="menu">
+            <!-- Eksempel: oppbygging av meny -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        //Menystruktur (array på to nivåer: menupoints > categories > links in category)
+        const menuPoints = [
+            {menuheader: "JavaScript resources", menulinks: [
+                {url: "https://www.w3schools.com/js/default.asp", menutext: "W3Schools"},
+                {url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", menutext: "Mozilla Developer Network"},
+                {url: "http://jsforcats.com/", menutext: "JavaScript for cats"}
+            ]},
+            {menuheader: "HTML resources", menulinks: [
+                {url: "https://www.w3schools.com/html/default.asp", menutext: "W3Schools"},
+                {url: "https://validator.w3.org/", menutext: "W3 Validator"},
+            ]},
+            {menuheader: "CSS resources", menulinks: [
+                {url: "https://www.w3schools.com/css/default.asp", menutext: "W3Schools"},
+                {url: "https://css-tricks.com/", menutext: "CSS Tricks"},
+            ]}
+        ]
+
+        //Lagre knapp- og meny-element for bruk i koden:
+        const menu = document.getElementById("menu")
+        const button = document.getElementById("toggleMenu")
+
+        /*
+         * Funksjon for å åpne/lukke meny:
+         * Hvis #menu inneholder klassen .active, fjern klassen
+         * Hvis ikke, legg til klassen .active på #menu
+         */
+
+         document.getElementById("toggleMenu").addEventListener("click", () => {
+            const menu = document.getElementById("menu")
+            const button = document.getElementById("toggleMenu")
+            if(menu.classList.contains("active")) {
+                menu.classList.remove("active")
+                button.innerHTML = `Menu <img src="menuicon.png">`
+            } else {
+                menu.classList.add("active")
+                button.innerHTML = `Close <img src="closeicon.png">`
+            }
+        })
+
+        
+
+        //Variabel for meny-HTML
+        //TODO: Skal ikke starte som en tom streng, må inneholde noe HTML for å møte oppgaveteksten...
+        let menuHTML = ``
+
+        //Gå gjennom første nivå av menupoints-array
+        menuPoints.map(category => {
+            //TODO: Forbered HTML med overskrift og listestart
+            
+            //TODO: Gå gjennom array på andre nivå (menulinks)
+            //TODO: For hver menulink: fyll menuHTML med listeelementer og link
+            
+            //TODO: Avslutt liste
+            
+        })
+
+        //TODO: Skriv ut HTML til <nav>:
+        
+    </script>
+</body>
+</html>

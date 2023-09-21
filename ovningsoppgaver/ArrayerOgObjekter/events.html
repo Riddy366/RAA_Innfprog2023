@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+
+    <h2>Events</h2>
+
+    <ul id="eventsYear">
+        
+    </ul>
+    <script>
+        const events = [
+            {year: 1969, event: "The creation of ARPANET"},
+            {year: 1971, event: "The first email is sent"},
+            {year: 1981, event: "BMI launches a PC"},
+            {year: 1990, event: "Tim Berners Lee launches the first website"},
+            {year: 1998, event: "Google was founded"}
+        ]
+        
+        let eventListHTML = ""
+
+        events.map((events) => eventListHTML += `<li>${events.year}: ${events.event}</li>`)
+        document.getElementById("eventsYear").innerHTML = eventListHTML
+
+    </script>
+</body>
+</html>
