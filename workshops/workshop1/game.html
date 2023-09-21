@@ -16,6 +16,7 @@
 <body>
     <header>
         <section id="player">
+            <span id="playerInfo"></span>
             <ul>
                 <li><img src="icons/shield.svg"> <span id="playerName">Marius</span></li>
                 <li><img src="icons/energydrink.svg" title="energy"> <span id="energy">3</span></li>
@@ -23,6 +24,7 @@
                 <li><img src="icons/solution.svg"> <span id="points">0</span> poeng</li>
                 <li><img src="icons/clock.svg"> <span id="duration">0</span></li>
             </ul>
+        
         </section>
         <img src="icons/c3_logo.svg" alt="Code Concept Collector" />
         <nav>
@@ -40,22 +42,24 @@
                     <tr>
                         <td><img src="icons/variable.svg" alt="" /></td>
                         <td>Variabler</td>
-                        <td>0</td>
+                        <td id="variables">0</td> <!--Mulig å gjøre <td><span id="variables">0</span></td>. 
+                            Finnes det et ord som eks: <td>0 variables</td>, 
+                            MÅ dette gjøres slikt <td><span id="variables">0</span>variables</td>-->
                     </tr>
                     <tr>
                         <td><img src="icons/array.svg" alt="" /></td>
                         <td>Arrayer</td>
-                        <td>1</span></td>
+                        <td id="arrays">1</td>
                     </tr>
                     <tr>
                         <td><img src="icons/loop.svg" alt="" /></td>
                         <td>Løkker</td>
-                        <td>2</td>
+                        <td id="loops">2</td>
                     </tr>
                     <tr>
                         <td><img src="icons/function.svg" alt="" /></td>
                         <td>Funksjoner</td>
-                        <td>1</td>
+                        <td id="functions">1</td>
                     </tr>
                 </table>
             </div>
@@ -75,17 +79,52 @@
     </main>
     <script>
         //PREPARE GAME CONFIG AND VARIABLES
-        //TODO: config
-       
-        //TODO: notebook
-        
 
+        //TODO: config
+       const gameConfig = {
+        player: "Ridwan",
+        energy: 6,
+        notebook: 2,
+        points: 10,
+        duration: 140
+       }
+
+
+    
+        //TODO: notebook
+        const notebook = {
+            variables: 3,
+            arrays: 2,
+            loops: 4,
+            functions: 7
+        }
+    
+        //(BONUS) TODO: function for all prints
+       function updateStaticUI() {
         //TODO: print playerinfo to HTML
+
+        // Tas vekk pga oppgave 5: document.getElementById("playerName").innerHTML = gameConfig.player
+        document.getElementById("energy").innerHTML = gameConfig.energy
+        document.getElementById("notebookItems").innerHTML = gameConfig.notebook
+        document.getElementById("points").innerHTML = gameConfig.points
+        document.getElementById("duration").innerHTML = gameConfig.duration
+
+         // Sjekker om spillernavnet er tom 
+        if(gameConfig.player === ""){
+            document.getElementById("playerName").innerHTML = "Waiting for player..."
+        }else{
+            document.getElementById("playerName").innerHTML = gameConfig.player
+        }
         
         //TODO: print notebook info to HTML
-
-        //(BONUS) TODO: function for all prints
-        
+        document.getElementById("variables").innerHTML = notebook.variables
+        document.getElementById("arrays").innerHTML = notebook.arrays
+        document.getElementById("loops").innerHTML = notebook.loops
+        document.getElementById("functions").innerHTML = notebook.functions
+       }
+    
+       // Kjøre funksjonen for utskrift
+       updateStaticUI()
     </script>
 </body>
 </html>
