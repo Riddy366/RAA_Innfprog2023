@@ -62,21 +62,33 @@
 
          //Variabel for meny-HTML
         //TODO: Skal ikke starte som en tom streng, må inneholde noe HTML for å møte oppgaveteksten...
-        let menuHTML = ``
+        let menuHTML = `<ul>`
 
         //Gå gjennom første nivå av menupoints-array
             menuPoints.map(category => { 
             menuHTML +=`<h2>${category.menuheader}</h2>
             <ul>
-                <li><a href="${category.menulinks}">${menuPoints}</a></li>
+                <li><a href=${category.menulinks}>${menuPoints.menutext}</a></li>
                 </ul>`
+
+
+
+            category.menulinks.map(text => {
+                menuHTML +=`<li><a href=${text.menulinks}>${text.menutext}</a></li>`
+                console.log(text)
+            })
+            
+            category.menulinks.map(links => {
+                    console.log(links)
+                })
+        
             //TODO: Forbered HTML med overskrift og listestart
             
             //TODO: Gå gjennom array på andre nivå (menulinks)
             //TODO: For hver menulink: fyll menuHTML med listeelementer og link
             
             //TODO: Avslutt liste
-            
+            menuHTML += `</ul>`
         })
 
         //TODO: Skriv ut HTML til <nav>:

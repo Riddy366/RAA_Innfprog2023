@@ -8,6 +8,8 @@
 <body>
     <p id="test"></p>
     <p id="parametertest"></p>
+    <h2>Alderskalkulator</h2>
+    <p id="agetext"></p>
     
     <script>
         // Viktig med parantes! Slik at JavaScript vet at det er en funksjon
@@ -40,6 +42,25 @@
         // Kjøre funksjonen alarmClock()
         alarmClock("Thursday", "06:30")
 
+
+        // Deklarere en alderskalkulator med to parametere
+        // En persons fødselsår og året vi skal regne ut alderen i (med en standard verdi)
+        function ageCalculator(birthyear, year = 2023) {
+
+            const age = year - birthyear
+            let text = ""
+
+            if(year < 2023){
+                text = `I ${year} var du ${age} år gammel`
+            }else if (year > 2023){
+                text = `I ${year} vil du være ${age} år gammel`
+            }else {
+                text = `I år er du ${age} år gammel`
+            }
+            document.getElementById("agetext").innerHTML = text
+        }
+        // Kalle funksjon
+        ageCalculator(2002)
 
     </script>
 </body>

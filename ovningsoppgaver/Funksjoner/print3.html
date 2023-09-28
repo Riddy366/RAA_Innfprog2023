@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjon with parameter</title>
+</head>
+<body>
+    <p id="name"></p>
+    <p id="mail"></p>
+    <p id="age"></p>
+
+    <script>
+
+        function print(name = "Ikke oppgitt", email = "Ikke oppgitt", birthyear = "Ikke oppgitt") {
+
+            document.getElementById("name").innerHTML = name
+            document.getElementById("mail").innerHTML = email
+            document.getElementById("age").innerHTML = birthyear
+
+            
+            if(birthyear === "Ikke oppgitt") {
+                document.getElementById("age").innerHTML = birthyear
+            } else {
+                document.getElementById("age").innerHTML = 2023 - birthyear
+            }
+            
+
+
+        }print("Ridwan", "Ridwanaa@hiof.no", 2002 )
+
+    </script>
+</body>
+</html>
