@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions Cheast Sheet</title>
+</head>
+<body>
+    <p id="test"></p>
+    <p id="parametertest"></p>
+    
+    <script>
+        // Viktig med parantes! Slik at JavaScript vet at det er en funksjon
+        // Deklarere en funksjon kalt testFunction()
+        function testFunction() {
+            console.log("testFunction kjører")
+
+            const testing = false
+
+            if(testing) {
+                document.getElementById("test").innerHTML = "Testing er ok"
+            } else{
+                document.getElementById("test").innerHTML = "Testing feilet"
+            }
+        }
+        // Kjører testFunction()
+        testFunction()
+
+        /* console.log(testing) Kan ikke kalle på en variabel som ikke er deklarert,
+         Det er fordi variabelen er deklarert i testFunction functionen*/
+
+         // Deklarere en funksjon med parameter
+         function alarmClock(day, time) {
+            console.log(day, time)
+
+            if(day !== "Saturday" && time === "06:30") {
+                document.getElementById("parametertest").innerHTML = "WAKE UP!!!!"
+            }
+        }  
+        // Kjøre funksjonen alarmClock()
+        alarmClock("Thursday", "06:30")
+
+
+    </script>
+</body>
+</html>

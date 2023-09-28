@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print navn og mail</title>
+</head>
+<body>
+    <p id="name"></p>
+    <p id="mail"></p>
+
+    <script>
+        function nameMail() {
+        
+            console.log(document.getElementById("name").innerHTML = "Ridwan")
+            console.log(document.getElementById("mail").innerHTML = "ridwanaa@hiof.no")
+
+            const name = "Ridwan"
+            const mail = "ridwanaa@hiof.no"
+
+            document.getElementById("name").innerHTML = name
+            document.getElementById("mail").innerHTML = mail
+
+        }
+        // Call the function
+        nameMail()
+    </script>
+</body>
+</html>
