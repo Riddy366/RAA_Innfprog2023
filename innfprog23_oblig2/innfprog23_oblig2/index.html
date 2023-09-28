@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>InnfProg Oblig 2</h1>
-        <button id="toggleMenu" aria-label="Open the menu">Menu <img src="menuicon.png" aria-hidden="true"></button>
+        <button id="toggleMenu" aria-label="Open the menu">Menu <img src="menuicon.png" alt="open" aria-hidden="true"></button>
         <nav id="menu">
             <!-- Eksempel: oppbygging av meny -->
             <ul>
@@ -67,30 +67,24 @@
         //Gå gjennom første nivå av menupoints-array
             menuPoints.map(category => { 
             menuHTML +=`<h2>${category.menuheader}</h2>
-            <ul>
-                <li><a href=${category.menulinks}>${menuPoints.menutext}</a></li>
-                </ul>`
-
-
+            <ul>`
 
             category.menulinks.map(text => {
-                menuHTML +=`<li><a href=${text.menulinks}>${text.menutext}</a></li>`
-                console.log(text)g
+                menuHTML +=`<li><a href=${text.url}>${text.menutext}</a></li>`
+                console.log(text)
             })
             
-            category.menulinks.map(links => {
-                    console.log(links)
-                })
         
             //TODO: Forbered HTML med overskrift og listestart
             
             //TODO: Gå gjennom array på andre nivå (menulinks)
             //TODO: For hver menulink: fyll menuHTML med listeelementer og link
             
-            //TODO: Avslutt liste
-            menuHTML += `</ul>`
+            
+       
         })
-
+        //TODO: Avslutt liste
+        menuHTML += `</ul>`
         //TODO: Skriv ut HTML til <nav>:
         menu.innerHTML = menuHTML
     </script>
