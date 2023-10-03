@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nb">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleksamen 1 - finn feilene</title>
+    <!-- CSS-stiler. Dette skal ikke endres -->
+    <style>
+        div#mainframe {
+            background-color: #b61010;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        div#background {
+            width: 80vw;
+            height: 80vh;
+            background-size: cover;
+            background-image: url('start-cat.jpg');
+            background-color: #232323;
+            background-position: center center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainframe">
+        <div id="background"></div>
+    </div>
+
+
+    <!-- 
+	JavaScript. Her finnes 10 feil som må rettes for at det riktige bildet skal vises.
+        PS: Du skal ikke skrive om koden, kun rette den opp der du finner feil.
+        Kommenter hver feil du finner! 
+    -->
+    <script>
+        
+        const examtype = "error"; // la til et gåsetegn etter error strengen
+        const studenttype = "hero"; // Byttet ":" til "=" for studenttype
+
+        const maxScore = 1337;
+        let currentScore = 330; // gjorde om til let 
+
+        const addedScore = currentScore * 4; // fjernet en "=" og la til en semikolon på slutten av linjen
+        const missingMaxScore = 17; // Gjorde om 17 til number, rettet opp skrivefeil
+        currentScore = addedScore + missingMaxScore; // Rettet opp skrivefeil for addedScore
+
+        let successImage; // La inn en let variabel for sucessImage
+        const green = "0, 128, 0";
+
+        // La til dollartegn for {studenttype}
+        if (maxScore == 1337) {
+              successImage = `${examtype}-${studenttype}` // fjernet const fordi variabelen allerede er deklarert
+        }
+
+        // La til krøllparantes for if statement i tillegg til fjernet et likhets tegn
+        if (currentScore === maxScore) {
+            document.getElementById("background").style.backgroundImage = "url(" + successImage + ".jpg)" // Rettet opp skrivefeil for getElementById
+            document.getElementById("mainframe").style.backgroundColor = "rgb(" + green + ")" // Rettet opp skrivefeil på variabelen green og la til et punktum istedenfor komma
+        }
+    </script>
+</body>
+
+</html>
