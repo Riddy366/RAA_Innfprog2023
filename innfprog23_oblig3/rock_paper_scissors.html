@@ -129,7 +129,8 @@
     <section id="gamearea">
         <div id="playerSigns">
             <h2 id="instruction">Play your hand:<span id="choice"></span></h2>
-            <button type="button" onClick="playy('rock')" id="rockButton" class="playerChoice"><img src="rock.png" alt="Rock" /></button>
+            <!--rettet skrivefeil (playy)-->
+            <button type="button" onClick="play('rock')" id="rockButton" class="playerChoice"><img src="rock.png" alt="Rock" /></button>
             <button type="button" onClick="play('paper')" id="paperButton" class="playerChoice"><img src="paper.png" alt="Paper" /></button>
             <button type="button" onClick="play('scissors')" id="scissorsButton" class="playerChoice"><img src="scissors.png" alt="Scissors" /></button>
         </div>
@@ -164,7 +165,8 @@
          * On mouseover, show the alt-text of the image inside the button and add animation class
          * On mouseout, remove the text and class
          */
-        buttonss.forEach(button => {
+        // Rettet skrivefeil (butonss)
+        buttons.forEach(button => {
             button.addEventListener("mouseover", (event) => {
                 document.getElementById("choice").innerHTML = button.childNodes[0].alt
                 document.getElementById("choice").setAttribute("class","choiceAnimate")
@@ -205,7 +207,7 @@
             //Lets write the computer selection to the console to make sure we have a valid hit:
             console.log("Computer selected: " + computerSign)
             // Good! Now we also have to show this on the website, by making #computer visible and filling it with HTML:
-            const computer = document.getElementByID("computer")
+            const computer = document.getElementById("computer") // Skrivefeil (getElementByID)
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
@@ -255,7 +257,8 @@
 
             winnerDiv.innerHTML = "The winner is " + winner
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
-             * _ditt svar her_ 
+             * _ditt svar her_ : Her så skriver vi ut hvem vinneren er med en tekst streng som 
+             forteller hvem som vant.
              */
 
             //Now, lastly, let's update the counter on how many games we have played:
@@ -263,7 +266,8 @@
 
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
-             * _ditt svar her_ 
+             * _ditt svar her_ : I denne linjen skriver vi ut counter variabelen i id`en counter
+             slik at det vises på nettsiden
              */
 
             //And display the button for playing again:
@@ -289,7 +293,8 @@
         }
 
         //Function for random numnber, fetched from MDN web docs:
-        unction getRandomInt(max) {
+        // Rettet skrivefeil (unction)
+        function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
     </script>
