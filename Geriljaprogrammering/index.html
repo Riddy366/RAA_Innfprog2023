@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Geriljaprogrammering</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <h1>Monkey Island commando escape</h1>
+            <img id="game-screen" src="img/1.png" alt="Guybrush i knipe">
+            <h2 id="winMessage">Congratulations, you have escaped!!</h2>
+            <p id="strawMessage">You have picked up a straw!</p>
+            <form>
+                <input id="command-field" type="text" placeholder="Gjør dette...">
+                <button id="command-button">Gi kommando</button>
+            </form>
+        </main>
+
+        <script>
+            // KONFIGURASJON
+            // Kommandoer
+
+            // const commandChest = "Åpne skattekiste"
+
+            const commands = [
+                {step: 1, command: "Åpne skattekiste", image: "img/2.png", solved: false},
+                {step: 2, command: "Fest ballong til stein", image: "img/3.png", solved: false},
+                {step: 3, command: "Blås på ballong", image: "img/4.png", solved: false},
+                {step: 4, command: "Plukk opp strå", image: "img/4.png", solved: false},
+                {step :5, command: "Plukk opp torne", image: "img/5.png", solved: false},
+                {step: 6, command: "lade blåserør", image: "img/6.png", solved: false},
+                {step: 7, command: "skyt på ballong", image: "img/7.png", solved: false},
+                {step: 8, command: "ta tak i tau", image: "img/8.png", solved: false}
+
+                
+            ]
+            
+
+
+            // Funksjon for å ta imot verdi fra input-felt
+            function checkCommand() {
+                const userCommand = document.getElementById("command-field").value
+                console.log(userCommand)
+                document.getElementById("command-field").value = ""
+                /*// Test brukerinput mot kommando(er)
+                if(command === commands[0].command) {
+                    console.log("Kommandoen er riktig")
+                    document.getElementById("game-screen").src = "img/2.png"
+                }else {
+                    console.log("Kommandoen er feil")
+                }*/
+
+                commands.map((c, index) => {
+                    if(userCommand.toLowerCase() === c.command.toLowerCase()) {
+                        console.log("Denne kommandoes finnes på index " + index)
+
+                        // Vi lager en statusvariabel for å sjekke om vi får lov til 
+                        // å akseptere denne kommandoen
+                        let canContinue = true
+                        // For-løkke som skal gå gjennom alle tidligee kommandoer (indexter)
+                        // enn den som er funnet
+                        for(let checkIndex = 0; checkIndex < index; checkIndex++) {
+                            if(commands[checkIndex].solved === false) {
+                                // Hvis en av de tidligere kommandoene er false,
+                                // setter vi canContinue også til false
+                                canContinue = false
+                            }
+                        }
+                        if(canContinue === true) {
+                            // Bytte bilde
+                            document.getElementById("game-screen").src = c.image
+                            // Sette solved til true for denne kommandoen
+                            c.solved = true
+                            if(c.step === 4) {
+                                document.getElementById("strawMessage").style.display = "block"
+                            }else {
+                                document.getElementById("strawMessage").style.display = "none"
+                            }
+                            if (index === commands.length - 1) {
+                                document.getElementById("winMessage").style.display = "block"
+                            }
+                        }
+                        console.log(commands)
+                    }
+                })
+            }
+            // EventListener for å sjekke knappetrykk eller Enter-trykk
+            document.getElementById("command-button").addEventListener("click", function(event) {
+                event.preventDefault() // Stopper nettsiden fra å starte siden på nytt
+                checkCommand()
+            })
+            /* På grunn av if(command === commandChest){} vil ikke dette fungere
+            document.addEventListener("keydown", function(event) {
+                if(event.code === "Enter") {
+                    checkCommand()
+                }
+            })
+            */
+        </script>
+
+    </body>
+</html>
