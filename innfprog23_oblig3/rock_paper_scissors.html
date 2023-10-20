@@ -226,6 +226,12 @@
             // Ok, now we have to check for rules! Paper beats rock, rock beat scissors, scissors beat paper.
             // This means if players sign beat computer sign, player wins. Lets try:
             // Oppgave 6 (counter for player, computer og tie)
+            
+            // Oppgave 7 gjør om if-testen for sjekker uvagjort til å være en enkel if-test
+            if(playerSign === computerSign) {
+                winner = "undecided"
+                draws++
+            }
             if(playerSign === "paper") {
                 if(computerSign === "rock") {
                     winner = "player"
@@ -235,40 +241,28 @@
                     winner = "computer"
                     computerW++
                 }
-                if(computerSign === "paper") {
-                    winner = "undecided"
-                    draws++
-                }
             }
             if(playerSign === "rock") {
-                if(computerSign === "rock") {
-                    winner = "undecided"
-                    draws++
+                if(computerSign === "paper") {
+                    winner = "computer"
+                    computerW++
                 }
                 if(computerSign === "scissors") {
                     winner = "player"
                     playerW++
-                }
-                if(computerSign === "paper") {
-                    winner = "computer"
-                    computerW++
                 }
             }
             if(playerSign === "scissors") {
-                if(computerSign === "rock") {
-                    winner = "computer"
-                    computerW++
-                }
-                if(computerSign === "scissors") {
-                    winner = "undecided"
-                    draws++
-                }
-            
                 if(computerSign === "paper") {
                     winner = "player"
                     playerW++
                 }
+                if(computerSign === "rock") {
+                    winner = "computer"
+                    computerW++
+                }
             }
+        
 
             document.getElementById("pWin").innerText = playerW;
             document.getElementById("cWin").innerText = computerW;
