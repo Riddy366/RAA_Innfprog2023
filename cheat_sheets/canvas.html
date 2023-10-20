@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Cheat Sheet</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #F3F3F3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            background: #FFFF;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingArea">
+
+        <script>
+
+            // Hente canvas elementet
+            const canvas = document.getElementById("drawingArea") //Canvas er et objekt
+            // Cavas må alltid ha ha høyde, bredde og context 
+
+            // Sette høyde og bredde på canvas, opererer kun med pixel verdier
+            canvas.width = 800
+            canvas.height = 600
+            // Sette context på canvas (hvilken verktøyklasse vi gjør tilgjenglig)
+            const ctx = canvas.getContext("2d")
+
+            // Tegne en strek
+            ctx.beginPath()
+            ctx.moveTo(100, 100)
+            ctx.lineTo(300, 300)
+            ctx.strokeStyle = "green"
+            ctx.lineWidth = 3
+            ctx.stroke()
+            ctx.closePath()
+
+            //Tegne firkanter
+            ctx.fillRect(500, 400, 300, 200)
+            ctx.strokeStyle = "red"
+            ctx.strokeRect(498.5, 1.5, 300, 200)
+
+
+            /*
+            Annen måte å gjøre det på 
+            const rect = {width: 20, height: 30}
+            ctx.fillRect(canvas.width - rect.width, canvas.height - rect.height, rect.width, rect.height)
+            */
+
+            // Tegne sirkel
+            ctx.beginPath()
+            ctx.arc(150, 450, 50, 0, 2 * Math.PI)
+            ctx.fillStyle = "gold"
+            ctx.fill()
+            ctx.stroke()
+            ctx.closePath()
+
+            //Tegne tekst
+            ctx.beginPath()
+            ctx.fillStyle = "black"
+            ctx.font = "60px Georgia"
+            ctx.fillText("10", 120, 465)
+            ctx.closePath()
+        </script>
+    </canvas>
+    
+</body>
+</html>

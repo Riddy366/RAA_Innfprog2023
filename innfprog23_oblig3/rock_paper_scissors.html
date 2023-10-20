@@ -145,6 +145,10 @@
         </div>
         <div id="counterBox">
             <div>Number of games played: <span id="counter">0</span></div>
+            <div>Player wins: <span id="pWin">0</span></div>
+            <div>Computer wins: <span id="cWin">0</span></div>
+            <div>Draws: <span id="draw">0</span></div>
+            
             <!-- A hidden button to show after a game, that resets and let the player play again -->
             <button id="replay" onClick="restartGame()">Play again</button>
         </div>
@@ -155,6 +159,10 @@
         let winner = ""
         //And prepare a counter-variable for number of games played:
         let counter = 0
+
+        let playerW = 0
+        let computerW = 0
+        let draws = 0
         //Make available signs available in code as an array
         const signs = ["rock", "paper", "scissors"]
         
@@ -217,45 +225,82 @@
             computer.innerHTML = "Computer selects " + computerSign
             // Ok, now we have to check for rules! Paper beats rock, rock beat scissors, scissors beat paper.
             // This means if players sign beat computer sign, player wins. Lets try:
+            // Oppgave 6 (counter for player, computer og tie)
             if(playerSign === "paper") {
                 if(computerSign === "rock") {
                     winner = "player"
+                    playerW++
                 }
                 if(computerSign === "scissors") {
                     winner = "computer"
+                    computerW++
                 }
                 if(computerSign === "paper") {
                     winner = "undecided"
+                    draws++
                 }
             }
             if(playerSign === "rock") {
                 if(computerSign === "rock") {
                     winner = "undecided"
+                    draws++
                 }
                 if(computerSign === "scissors") {
                     winner = "player"
+                    playerW++
                 }
                 if(computerSign === "paper") {
                     winner = "computer"
+                    computerW++
                 }
             }
             if(playerSign === "scissors") {
                 if(computerSign === "rock") {
                     winner = "computer"
+                    computerW++
                 }
                 if(computerSign === "scissors") {
                     winner = "undecided"
+                    draws++
                 }
+            
                 if(computerSign === "paper") {
                     winner = "player"
+                    playerW++
                 }
             }
+
+            document.getElementById("pWin").innerText = playerW;
+            document.getElementById("cWin").innerText = computerW;
+            document.getElementById("draw").innerText = draws;
+
             //Now we have checks to set the winner. Let's write it to the website.
             //Now you know the drill: show #winner by display: block and fill it with HTML:
             const winnerDiv = document.getElementById("winner")
             winnerDiv.style.display = "block"
 
-            winnerDiv.innerHTML = "The winner is " + winner
+            // Oppgave 3 
+            if(winner === "player") {
+                document.getElementById("winner").style.backgroundColor = "#FFD700" // Gulfarget tekst hvis vinneren vinner
+            } else {
+                document.getElementById("winner").style.color = "#006064" // Bytter tekst fargen tilbake til orginalen
+                document.getElementById("winner").style.backgroundColor = "#006b5e" // Bytter bakgrunnsfargen til orginalen
+            }
+
+        
+
+            // Opgpave 5
+            // Betinget logikk som gir ut en fast streng utifra en annen If test
+            if(winner === "player") {
+                winnerDiv.innerHTML = "You Win"
+            } else if(winner === "computer") {
+                winnerDiv.innerHTML = "You Lost"
+            } else {
+               winnerDiv.innerHTML = "It´s a Tie"
+            }
+
+
+            
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
              * _ditt svar her_ : Her så skriver vi ut hvem vinneren er med en tekst streng som 
              forteller hvem som vant.
@@ -263,7 +308,9 @@
 
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
-
+            
+            document.getElementById("counter").style.color = "#00bcd4"
+           
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
              * _ditt svar her_ : I denne linjen skriver vi ut counter variabelen i id`en counter
