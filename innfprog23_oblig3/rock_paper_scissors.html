@@ -220,7 +220,10 @@
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
              * _ditt svar her_ 
-             cccc
+             const computer = document.getElementById("computer"):
+             Her deklarerer vi en variabel som refererer til diven som vi ga en id computer.
+             Ved å referere til computer variabelen kan vi manipulere HTML elementet ved hjelp av 
+             JavaScript. 
              */
 
             computer.innerHTML = "Computer selects " + computerSign
@@ -297,8 +300,10 @@
 
             
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
-             * _ditt svar her_ : Her så skriver vi ut hvem vinneren er med en tekst streng som 
-             forteller hvem som vant.
+             * _ditt svar her_ : 
+              winnerDiv.style.display = "block": Variabelen winnerDiv har muligheten til å manipulere HTML-elementet i div`en som har en id 
+             "winner". Det style.display = "block" gjør er at elementet vil vises på HTML siden når JavaScript
+             koden kjøres
              */
 
             //Now, lastly, let's update the counter on how many games we have played:
@@ -308,8 +313,9 @@
            
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
-             * _ditt svar her_ : I denne linjen skriver vi ut counter variabelen i id`en counter
-             slik at det vises på nettsiden
+             * _ditt svar her_ :
+             counter = counter + 1 gjør det mulig å telle hvor mange runder vi har spilt ved å legge til + 1.
+
              */
 
             //And display the button for playing again:
