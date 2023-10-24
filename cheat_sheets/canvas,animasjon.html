@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Cheat Sheet</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #F3F3F3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            background: #FFFF;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingArea"></canvas>
+
+        <script>
+
+            // Hente canvas elementet
+            const canvas = document.getElementById("drawingArea") //Canvas er et objekt
+            // Cavas må alltid ha ha høyde, bredde og context 
+
+            // Sette høyde og bredde på canvas, opererer kun med pixel verdier
+            canvas.width = 800
+            canvas.height = 600
+            // Sette context på canvas (hvilken verktøyklasse vi gjør tilgjenglig)
+            const ctx = canvas.getContext("2d")
+
+            //Innlastningskontroll
+            let heroImageLoaded = false
+
+            // Lage et bildeobjekt (flaticon.com)
+            const heroImage = new Image()
+            // angi hvilken bildefil som skal tegnes i canvas
+            heroImage.src = "superhero.png"
+            //Sjekker vi at bildeobjekt er lastet i nettleser
+            heroImage.onload = () =>  {
+                heroImageLoaded = true
+                 // Tegne bilde til canvas
+                 //ctx.drawImage(heroImage, 600, 100)
+        }
+            // Gi oss selv en feilmelding dersom bildeobjektet ikke klarer å laste
+            heroImageLoaded ? console.log("Bildeobjekt lasted") : console.log("Bildeobjekt ikke lastet")
+            
+            // Definerer requestAnumationFrame foir ulike nettlesere:
+            requestAnimationFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+            window.mozRequestAnimationFrame 
+
+            // Lage en funksjon for tilfeldig valgte verdier
+            function randomMinMax(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)+ min)
+            }
+
+             // Lage en X og Y- counter
+             let xCounter = randomMinMax(0, canvas.width - 200)
+             let yCounter = randomMinMax(canvas.height / 2, canvas.height)
+
+            function renderFrames() {
+                //Tømmer hele canvaset
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                // Tegne elementene i en bilderamme
+                ctx.drawImage(heroImage, xCounter, yCounter)
+                // Flytte bilde 1 pixel mot høyre
+                xCounter++
+                // Flytte bilde 5 pixler oppover
+                yCounter = yCounter - 5 // Kan skrive yCounter -= 5 også
+                // Kjøre en ny bilderamme
+                requestAnimationFrame(renderFrames)
+            }
+
+            // Starte animasjon
+            renderFrames()
+
+        </script>
+
+</body>
+</html>
