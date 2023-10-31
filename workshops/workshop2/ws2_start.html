@@ -93,27 +93,6 @@
             functions: 3
         }
 
-        //WS2, OPPG 5: FUNKSJON FOR Å OPPDATERE EN KONFIGURASJONSVERDI
-        function changeConfigValue(config, value) {
-            if(config === "energy") {
-                gameConfig.energy = gameConfig.energy + value
-            }
-            if(config === "points") {
-                gameConfig.points = gameConfig.points + value
-            }
-            if(config === "duration") {
-                gameConfig.duration = gameConfig.duration + value
-            }
-
-            config === "variables" ? notebook.variables = notebook.variables + value : null
-            config === "arrays" ? notebook.arrays = notebook.arrays + value : null
-            config === "loops" ? notebook.loops = notebook.loops + value : null
-            config === "functions" ? notebook.functions = notebook.functions + value : null
-
-            console.log(gameConfig.points)
-        }
-
-        changeConfigValue("points", -1)
         
 
         //(BONUS) TODO: function for all prints
@@ -136,7 +115,7 @@
             document.getElementById("functions").innerHTML = notebook.functions
         }
 
-        //WS2, Oppgave 4: Funksjon for å skrive ut oppdatering til et element:
+        //Funksjon for å skrive ut oppdatering til et element:
         function updateSingleStaticUI(elementid, value) {
             document.getElementById(elementid).innerHTML = value
         }
@@ -144,13 +123,34 @@
         //Kjøre (kalle) funksjonen for utskrift:
         updateStaticUI()
 
-        //WS2, Oppgave 4: Testkjøring av funksjon for å oppdatere ett element:
+        //Testkjøring av funksjon for å oppdatere ett element:
         updateSingleStaticUI("playerName", "TESTNAVN")
 
-        //Lage funksjon for å vise/skjule elementer
+        //Lage funksjon for å vise/skjule #notebook
         function toggleVisibility(elementid) {
-            //få tak i elementet som skal toggle synlighet
+            //Finne alle elementer som kan påvirkes (.hideable)
+            const hideables = document.querySelectorAll(".hideable")
+            console.log(hideables)
+            /*hideables.map((hideable) => {
+                hideable.style.display = "none"
+            })*/
+            for(let index = 0; index < hideables.length; index++) {
+                hideables[index].style.display = "none"
+                if(hideables[index].id != elementid) {
+                    hideabels[index].classList.add("hidden")
+                }
+            }
             const element = document.getElementById(elementid)
+            if(element.classList.contains("hidden")) {
+                element.style.display = "block"
+                element.classList.remove("hidden")
+            } else {
+                element.style.display = "none"
+                element.classList.add("hidden")
+            }
+
+            //få tak i #notebook
+            /*const element = document.getElementById(elementid)
             //sjekke om klassen hidden finnes:
             if(element.classList.contains("hidden") === true) {
                 element.style.display = "block"
@@ -158,10 +158,10 @@
             } else {
                 element.style.display = "none"
                 element.classList.add("hidden")
-            }
+            }*/
         }
 
-        //WS2, Oppg. 3: Lytte etter tastaturtrykk
+        //Lytte etter tastaturtrykk
         document.addEventListener("keydown", function(Event) {
             //Sjekke om tasten som er trykket er N:
             if(Event.key === "n") {
@@ -173,7 +173,7 @@
             }
         })
 
-        //WS2, Oppg. 2: Lytte etter klikk på notebook- og info-knappene:
+        //Lytte etter klikk på notebook- og info-knappene:
         document.getElementById("notebookToggler").addEventListener("click", function(Event) {
             toggleVisibility("notebook")
         })
